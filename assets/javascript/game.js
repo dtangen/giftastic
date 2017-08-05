@@ -10,7 +10,7 @@ function createButtons () {
 
 	for (var i = 0; i < topics.length; i++) {
 
-		var athleteButton = $("<button>");
+		var athleteButton = $("<button class='btn btn-success'>");
 
 		athleteButton.addClass("athlete");
 
@@ -36,22 +36,20 @@ function displayAthletes() {
     })
     .done(function(response) {
     	var results = response.data;
-    	console.log(response);
+    	console.log(results);
+    	$("#athletes").empty();
 
     	for (var j = 0; j < results.length; j++) {
-
 
     		var gifDiv = $("<div class='athleteName'>");
     		var rating = results[j].rating;
     		var gifRating = $("<p>").text("Rating: " + rating);
-
 
     		var athleteImage = $("<img class='gif'>");
     		athleteImage.attr("src", results[j].images.fixed_height_still.url);
     		athleteImage.attr("data-still", results[j].images.fixed_height_still.url);
     		athleteImage.attr("data-animate", results[j].images.fixed_height.url);
     		athleteImage.attr("data-state", "still");
-
 
     		gifDiv.prepend(gifRating);
     		gifDiv.prepend(athleteImage);
@@ -63,10 +61,15 @@ function displayAthletes() {
 };
 
 $("#add-athlete").on("click", function(event) {
+
     event.preventDefault();
+
     var athleteName = $("#athlete-input").val().trim();
     topics.push(athleteName);
+
     createButtons();
+
+    $("#athlete-input").val("");
 });
 
 $(document).on("click", ".athlete", displayAthletes);
@@ -74,6 +77,7 @@ $(document).on("click", ".athlete", displayAthletes);
 function animateGIF() {
 
     var state = $(this).find("img").attr("data-state");
+
       	if (state === "still") {
         	$(this).find("img").attr("src", $(this).find("img").attr("data-animate"));
         	$(this).find("img").attr("data-state", "animate");

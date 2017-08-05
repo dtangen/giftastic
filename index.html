@@ -3,24 +3,42 @@
 <head>
 	<meta charset="utf-8">
 	<title>GifTastic</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 </head>
 <body>
 
-<div id="buttons">
-
+<div class="container">
+	<div class="row">
+		<div class="col-md-12" align="center">
+		<h1 id="header">Athlete GIFs</h1>
+		</div>
+	</div>
 </div>
 
 <form id="athlete-form">
-    <label for="movie-input">Enter an athlete's name</label>
+    <label for="movie-input">Enter an athlete's name: </label>
     <input type="text" id="athlete-input"><br>
-    <input id="add-athlete" type="submit" value="Add Athlete">    
+    <input id="add-athlete" type="submit" value="Add Athlete" class="btn btn-primary">    
 </form>
 
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div id="buttons">
+			</div>
+		</div>
+	</div>
+</div>
 
-<div id="athletes">
-
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div id="athletes">
+			</div>
+		</div>
+	</div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
