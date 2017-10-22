@@ -1,1 +1,1 @@
-# giftastic
+Giftastic is an app that uses the giphy API to return gifs of an athlete that the user searches for.
